@@ -54,7 +54,7 @@ router.post('/employees', async (req, res) => {
 
     try {
         const employeeId = await EmpService.createEmployee({
-            firstName: newEmployeeData.lastName,
+            firstName: newEmployeeData.firstName,
             lastName: newEmployeeData.lastName
         });
 
