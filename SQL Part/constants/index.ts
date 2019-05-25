@@ -6,3 +6,11 @@ export const credentials = {
     password: '12e82d7e0f696b6ffb0485410f36c13b4312b03344f7e10d3b70a04318557c37'
 };
 
+export const credentialsLocatHost = {
+    host: 'localhost',
+    port: 5432,
+    database: 'lab3',
+    user: 'postgres',
+    password: '1'
+};
+

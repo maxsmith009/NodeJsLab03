@@ -111,7 +111,13 @@ router.get('/employees/:id/vacations', async (req, res) => {
     }
 
     try {
-        res.json(await VacService.getVacationsOfEmployee(req.params.id));
+        const employee = await EmpService.getEmployeeById(req.params.id);
+        const employeeData = employee[0] || {};
+        const vacationsOfEmployee = await VacService.getVacationsOfEmployee(req.params.id);
+        res.json({
+            numberOfDaysLeft: employeeData.vacationDaysLeft,
+            vacationsOfEmployee
+        });
     } catch (e) {
         res.status(500).json(e)
     }
