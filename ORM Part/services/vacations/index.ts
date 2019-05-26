@@ -1,9 +1,9 @@
-import {DB_URL} from '../../constants';
+import {credentials} from '../../constants';
 import {IVacation} from "../../routes/vacations";
 
 const uniqid = require('uniqid');
 const pgp = require('pg-promise')();
-const db = pgp(DB_URL);
+const db = pgp(credentials);
 
 export interface IVacationService {
     getVacations(): Promise<IVacation[]>;

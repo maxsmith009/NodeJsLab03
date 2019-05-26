@@ -1,6 +1,6 @@
 import express from 'express'
-import {EmployeeService} from "../queries/employees";
-import {VacationService} from "../queries/vacations";
+import {EmployeeService} from "../services/employees";
+import {VacationService} from "../services/vacations";
 
 const router = express.Router();
 const EmpService = new EmployeeService();
@@ -54,7 +54,7 @@ router.post('/employees', async (req, res) => {
 
     try {
         const employeeId = await EmpService.createEmployee({
-            firstName: newEmployeeData.lastName,
+            firstName: newEmployeeData.firstName,
             lastName: newEmployeeData.lastName
         });
 
@@ -111,7 +111,13 @@ router.get('/employees/:id/vacations', async (req, res) => {
     }
 
     try {
-        res.json(await VacService.getVacationsOfEmployee(req.params.id));
+        const employee = await EmpService.getEmployeeById(req.params.id);
+        const employeeData = employee[0] || {};
+        const vacationsOfEmployee = await VacService.getVacationsOfEmployee(req.params.id);
+        res.json({
+            numberOfDaysLeft: employeeData.vacationDaysLeft,
+            vacationsOfEmployee
+        });
     } catch (e) {
         res.status(500).json(e)
     }
@@ -142,7 +148,7 @@ router.post('/employees/:id/new-vacation-request', async (req, res) => {
             const employeeCurrentData = employees[0];
 
             if (employeeCurrentData.vacationDaysLeft < body.numberOfDays) {
-                res.status(404).send('Not enough days');
+                res.status(400).send('Not enough days');
                 return;
             }
 

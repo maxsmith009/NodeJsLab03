@@ -1,9 +1,9 @@
-import {DB_URL} from '../../constants';
+import {credentials} from '../../constants';
 import {IEmployee} from "../../routes/employees";
 
 const uniqid = require('uniqid');
 const pgp = require('pg-promise')();
-const db = pgp(DB_URL);
+const db = pgp(credentials);
 
 export interface IEmployeeService {
     getEmployees(): Promise<IEmployee[]>;

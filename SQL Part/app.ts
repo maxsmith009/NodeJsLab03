@@ -8,12 +8,15 @@ const employeeRouter = require('./routes/employees');
 const vacationRouter = require('./routes/vacations');
 
 const app = express();
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 const startDate = new Date();
 const getUpTime = () => {
     return (new Date()).getTime() - startDate.getTime();
 };
 
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

@@ -1,5 +1,5 @@
 import express from 'express'
-import {VacationService} from "../queries/vacations";
+import {VacationService} from "../services/vacations";
 
 const router = express.Router();
 const VacService = new VacationService();

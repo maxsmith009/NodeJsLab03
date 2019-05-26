@@ -2,6 +2,14 @@
 
 Applications to make http calls and seva result in json files
 
+### Swagger
+
+You can use swagger on deployed application using this link
+
+```
+https://lab-3-sql.herokuapp.com/swagger/
+```
+
 ### Installing
 
 Step 1. Clone the repo

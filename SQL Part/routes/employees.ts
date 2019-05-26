@@ -148,7 +148,7 @@ router.post('/employees/:id/new-vacation-request', async (req, res) => {
             const employeeCurrentData = employees[0];
 
             if (employeeCurrentData.vacationDaysLeft < body.numberOfDays) {
-                res.status(404).send('Not enough days');
+                res.status(400).send('Not enough days');
                 return;
             }
 
