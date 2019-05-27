@@ -1,9 +1,11 @@
-import {credentials} from '../../constants';
 import {IEmployee} from "../../routes/employees";
+import {credentialsLocatHost} from "../../constants";
+import * as sequelize from '../../database'
 
 const uniqid = require('uniqid');
 const pgp = require('pg-promise')();
-const db = pgp(credentials);
+const db = pgp(credentialsLocatHost);
+
 
 export interface IEmployeeService {
     getEmployees(): Promise<IEmployee[]>;
@@ -24,7 +26,12 @@ export class EmployeeService implements IEmployeeService {
     }
 
     public async getEmployees() {
-        return await db.any('SELECT * FROM employees');
+
+
+
+        const awaw = await sequelize.models.Employee.findAll();
+        console.log(awaw);
+        //return await db.any('SELECT * FROM employees');
     };
 
     public async getEmployeeById(id: string) {

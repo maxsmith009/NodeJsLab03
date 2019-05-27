@@ -1,9 +1,9 @@
 export const credentials = {
-    host: 'ec2-54-246-92-116.eu-west-1.compute.amazonaws.com',
+    host: 'ec2-46-137-113-157.eu-west-1.compute.amazonaws.com',
     port: 5432,
-    database: 'd95sedv86hj7ih',
-    user: 'sqjtlyuhxcruam',
-    password: '12e82d7e0f696b6ffb0485410f36c13b4312b03344f7e10d3b70a04318557c37'
+    database: 'd6d3a0oqfhtk6d',
+    user: 'rbjmpmpyhjcukm',
+    password: 'eae8858ba0fbcc83756ec9d779c303002715ab91b55c153a25a015f9eb1eea6a'
 };
 
 export const credentialsLocatHost = {

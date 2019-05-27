@@ -1,9 +1,10 @@
-import {credentials} from '../../constants';
+import {credentials, credentialsLocatHost} from '../../constants';
 import {IVacation} from "../../routes/vacations";
 
+const Vacation = require('../../models/Vacation');
 const uniqid = require('uniqid');
 const pgp = require('pg-promise')();
-const db = pgp(credentials);
+const db = pgp(credentialsLocatHost);
 
 export interface IVacationService {
     getVacations(): Promise<IVacation[]>;
@@ -27,7 +28,10 @@ export class VacationService implements IVacationService {
     }
 
     public async getVacations() {
-        return await db.any('SELECT * FROM vacations');
+        return await Vacation.findAll({
+
+        });
+        //return await db.any('SELECT * FROM vacations');
     };
 
     public async getVacationById(id: string) {
