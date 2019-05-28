@@ -1,6 +1,6 @@
-# NodeJsLab02
+# NodeJsLab03
 
-Applications to make http calls and seva result in json files
+Node js application to make db calls usong SQL querries
 
 ### Swagger
 
@@ -15,16 +15,6 @@ https://lab-3-sql.herokuapp.com/swagger/
 Step 1. Clone the repo
 ```
 git clone https://github.com/maxsmith009/NodeJsLab03.git
-```
-
-To access SQL application use 
-```
-cd SQL Part
-```
-
-To access ORM application use 
-```
-cd ORM Part
 ```
 
 Step 2. Install dependencies
